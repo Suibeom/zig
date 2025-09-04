@@ -186940,6 +186940,10 @@ const Temp = struct {
                     assert(src_regs.len - part_index == std.math.divCeil(u32, src_abi_size, 8) catch unreachable);
                     break :part_ty .u64;
                 },
+                .tuple_type => |tuple_type| {
+                    assert(tuple_type.types.len == src_regs.len);
+                    break :part_ty .fromInterned(tuple_type.types.get(ip)[part_index]);
+                },
             };
             const part_size: u31 = @intCast(part_ty.abiSize(zcu));
             const src_rc = src_reg.class();
