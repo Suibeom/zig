@@ -92414,7 +92414,7 @@ fn genBody(cg: *CodeGen, body: []const Air.Inst.Index) InnerError!void {
                     .clobbers = .{ .eflags = true },
                     .each = .{ .once = &.{
                         .{ ._, ._, .mov, .tmp0p, .sa(.src0, .sub_unaligned_size), ._, ._ },
-                        .{ .@"0:", .vp_d, .movzxb, .tmp1y, .memia(.src0x, .tmp0, .add_unaligned_size), ._, ._ },
+                        .{ .@"0:", .vp_d, .movzxb, .tmp1y, .memia(.src0q, .tmp0, .add_unaligned_size), ._, ._ },
                         .{ ._, .v_dqa, .mov, .memsia(.dst0y, .@"4", .tmp0, .add_unaligned_size), .tmp1y, ._, ._ },
                         .{ ._, ._, .add, .tmp0p, .si(8), ._, ._ },
                         .{ ._, ._nc, .j, .@"0b", ._, ._, ._ },
